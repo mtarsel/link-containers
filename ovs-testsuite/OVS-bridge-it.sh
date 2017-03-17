@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Mick Tarsel
-#creates a bridge connected to 2 namespaces
+#creates an OVS bridge connected to 2 namespaces
 #the namespaces are connected to bridge with veth pairs
 
 # create the bridge, namespaces, and bridge ports for namespaces
