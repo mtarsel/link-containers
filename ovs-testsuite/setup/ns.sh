@@ -18,11 +18,10 @@ do
 	ovs-vsctl add-port br-$BR p$i
         
         #assign ip addresses.
-       # ifconfig p$ up
+        ifconfig p$i up
 	#add ten to last octet of network ip addr
+	IP=$(echo $IP | awk -F. '{printf "%d.%d.%d.%d", $1,$2,$3,$4+10}')
 	#echo $IP
-	#IP=$(echo $IP | awk -F. '{printf "%d.%d.%d.%d", $1,$2,$3,$4+10}')
-	#echo $IP
-#        ip netns exec ns$i ifconfig tap$i 10.0.0.'$i'0/24 up
+        ip netns exec ns$i ifconfig tap$i $IP/24 up
 done
 
