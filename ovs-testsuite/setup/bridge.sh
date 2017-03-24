@@ -2,7 +2,7 @@
 
 
 # create the bridge, namespaces, and bridge ports for namespaces
-NUMBRIDGE=2
+NUMBRIDGE=1
 
 #TODO
 IP=10.0.0.1
