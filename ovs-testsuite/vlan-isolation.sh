@@ -2,11 +2,25 @@
 
 #isolate VM traffic using VLANs tags
 
-ovs-vsctl add-port br-01 br-p1 tag=100
-ovs-vsctl add-port br-01 br-p3 tag=100
+#this assumes interfaces are up and running so we dont need bridge
 
-ovs-vsctl add-port br-01 br-p2 tag=200
-ovs-vsctl add-port br-01 br-p4 tag=200
+
+
+NUMNS=4
+
+for i in `seq 1 $NUMNS`;
+do
+	#split tags into 100 and 200 from 4 ns'
+	tag=$(((($i%2)+1)*100))
+	
+	ovs-vsctl set port p$i tag=$tag
+
+#	ovs-vsctl add-port br-01 br-p2 tag=200
+done
+
+ovs-vsctl  show
+
+sleep 2
 
 #working pings
 ip netns exec ns1 ping -c2 10.0.0.30
