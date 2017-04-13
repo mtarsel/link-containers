@@ -23,3 +23,6 @@ remove namespaces and bridge from bridge-it.sh
 
 # tunneler.sh
 Link 2 containers together via a veth pair
+
+# ovs-testsuite
+Some scripts to create networks with OvS and network namespaces. Going to be a seperate repo soon.
