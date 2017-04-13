@@ -1,17 +1,15 @@
 #!/bin/bash
 
-BRIDGE=1
-NS=$(ip netns list | wc -l)
+BRIDGE=$1
 
 #delete all name spaces
-for i in `seq 1 $NS`;
-do
-    ip netns delete ns$i
-done
+ip -all netns delete
 
 #delete all bridges
 for i in `seq 1 $BRIDGE`;
 do
-    ifconfig br-$i down
+    ip link set br-$i down
     ovs-vsctl del-br br-$i
 done
+
+ovs-vsctl show 
