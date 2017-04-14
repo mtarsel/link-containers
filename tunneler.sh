@@ -6,8 +6,8 @@
 # Connects eth0v6 and eth1v6 via IPv6
 
 #TODO: Create the containers FIRST!! whats your docker image?
-#  docker run -it --name=front_way  --net=none my-docka /bin/bash
-#  docker run -it  --name=back_side --net=none my-docka /bin/bash
+#  docker run -i -t --name=front_way  --net=none my-docka /bin/bash
+#  docker run -i -t  --name=back_side --net=none my-docka /bin/bash
 
 CLIENT=front_way
 SERVER=back_side
